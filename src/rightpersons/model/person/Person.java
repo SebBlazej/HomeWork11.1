@@ -1,6 +1,7 @@
 package rightpersons.model.person;
 
-import rightpersons.model.person.exception.PersonExceptions;
+import rightpersons.model.person.exception.IncorrectAgeException;
+import rightpersons.model.person.exception.NameUndefinedException;
 
 import static rightpersons.model.person.exception.PersonExceptions.*;
 
@@ -11,26 +12,27 @@ public class Person {
     private int age;
     private long pesel;
 
-    public Person(String firstName, String lastName, int age, long pesel) {
-        setFirstName(firstName);
-        setLastName(lastName);
-        setAge(age);
-        this.pesel = pesel;
+    public Person(){
+
     }
 
-    private void setAge(int age){
+    public void setAge(int age) throws IncorrectAgeException {
         validateAge(age);
         this.age = age;
     }
 
-    private void setFirstName(String firstName){
+    public void setFirstName(String firstName) throws NameUndefinedException {
         validateName(firstName);
         this.firstName = firstName;
     }
 
-    private void setLastName(String lastName){
+    public void setLastName(String lastName) throws NameUndefinedException {
         validateName(lastName);
         this.lastName = lastName;
+    }
+
+    public void setPesel(long pesel) {
+        this.pesel = pesel;
     }
 
     @Override

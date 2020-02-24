@@ -1,7 +1,7 @@
 package rightpersons.model.person.exception;
 
-class NameUndefinedException extends PersonExceptions {
+public class NameUndefinedException extends PersonExceptions {
     NameUndefinedException(String name) {
-        super((name == null)?"Próbujesz podstawić null":"Długość wprowadzonego imienia/nazwiska = " + name.length());
+        super((name == null)?"Próbujesz podstawić pustą wartość":name + " - o długości " + name.length() + " - jest za krótkie");
     }
 }
